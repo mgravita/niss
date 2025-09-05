@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Шаблон письма для добавления NISS</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;            /* eye-friendly background */
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+      --radius: 16px;
+      --shadow: 0 8px 30px rgba(0,0,0,0.06);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg), #eef2f7);
+      line-height: 1.55;
+    }
+    .container {
+      max-width: 980px;
+      margin: 48px auto;
+      padding: 0 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    h1 {
+      font-size: 28px;
+      margin: 0 0 12px;
+      letter-spacing: 0.2px;
+    }
+    .lead { color: var(--muted); margin-bottom: 16px; }
+    .intro { margin-bottom: 18px; }
+    .intro a { color: var(--accent); text-decoration: none; }
+    .intro a:hover { text-decoration: underline; }
+
+    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 720px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+    }
+    label { font-weight: 600; font-size: 14px; }
+    input[type="text"], input[type="date"], textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      outline: none;
+      background: #fbfcfe;
+      transition: border-color 120ms ease;
+      font-size: 15px;
+    }
+    input:focus, textarea:focus { border-color: #c7d2fe; }
+
+    .row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; }
+
+    textarea {
+      min-height: 280px;
+      resize: vertical;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 80ms ease, background 120ms ease, border-color 120ms ease;
+    }
+    .btn:hover { background: #eef2ff; border-color: #dbeafe; }
+    .btn:active { transform: translateY(1px); }
+
+    .hint { color: var(--muted); font-size: 13px; }
+    .footer-note { margin-top: 14px; color: var(--muted); font-size: 14px; }
+
+    .coffee {
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px dashed #d1d5db;
+      border-radius: 12px;
+      background: #fafafa;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 14px;
+    }
+    .tag {
+      display: inline-block; font-size: 12px; color: #334155; background: #e2e8f0; border-radius: 999px; padding: 3px 10px; margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card" style="margin-bottom: 16px;">
+      <h1>Шаблон письма для добавления NISS</h1>
+      <p class="lead">Сгенерируйте тему и текст письма на основе ваших данных.</p>
+      <div class="intro">
+        <p>
+          Шаблон письма для добавления NISS на портал, который сработал в моём случае. Отправлять на
+          <span class="tag"><a href="mailto:loja.lisboa1@aima.gov.pt">loja.lisboa1@aima.gov.pt</a></span>
+          <span class="tag"><a href="mailto:loja.lisboa2@aima.gov.pt">loja.lisboa2@aima.gov.pt</a></span>
+          <span class="tag"><a href="mailto:portalservicos@aima.gov.pt">portalservicos@aima.gov.pt</a></span>
+        </p>
+        <p>
+          К письму приложить фото резиденции, первой страницы загран.паспорта, самого НИСС (Extracto dos dados registados, который выдали при получении НИСС), COMPROVATIVO DE CONTACTOS из ЛК Сегурансы
+          (<a href="https://www.seg-social.pt/ptss/id/contactos-base/dados-identificacao" target="_blank" rel="noopener noreferrer">https://www.seg-social.pt/ptss/id/contactos-base/dados-identificacao</a> наверху нажать
+          &quot;Obter comprovativo de contactos&quot;).
+        </p>
+      </div>
+
+      <div class="grid grid-2" style="margin-top: 10px;">
+        <div>
+          <label for="fullName">Ваше имя фамилия</label>
+          <input id="fullName" type="text" placeholder="Ivanov Ivan" />
+        </div>
+        <div>
+          <label for="resNum">Номер резидентской карточки</label>
+          <input id="resNum" type="text" placeholder="A01A234567" />
+        </div>
+        <div>
+          <label for="niss">Номер NISS</label>
+          <input id="niss" type="text" placeholder="12345678901" />
+        </div>
+        <div>
+          <label for="dob">Дата рождения <span class="hint">(ММ/ДД/ГГГГ; например 15/09/1990)</span></label>
+          <input id="dob" type="text" placeholder="15/09/1990" />
+        </div>
+      </div>
+
+      <hr style="margin: 22px 0; border: none; border-top: 1px solid var(--border);" />
+
+      <div class="grid" style="gap: 12px;">
+        <div class="row">
+          <div style="width:100%">
+            <label for="subject">Тема письма</label>
+            <input id="subject" type="text" readonly />
+          </div>
+          <button class="btn" type="button" data-copy="subject">Копировать тему</button>
+        </div>
+
+        <div>
+          <label for="body">Текст письма</label>
+          <div class="row" style="grid-template-columns: 1fr auto;">
+            <textarea id="body" readonly></textarea>
+            <button class="btn" type="button" data-copy="body">Копировать текст</button>
+          </div>
+          <p class="footer-note">Подставляйте свои данные в поля выше — текст обновляется автоматически.</p>
+        </div>
+
+        <div class="coffee">
+          <strong>купи мне кофе:</strong><br/>
+          mbway 93-290-18-восемнадцать<br/>
+          eth 0xf69F9B27C189fAD4d12CCD742886eBcBbd857402<br/>
+          sol 2P7ykf8HGmZzVryLUmzYkiRiTqhz9SrAFwKreC4gpo3z
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    const placeholders = {
+      fullName: '{full name}',
+      resNum: '{резиденция}',
+      dob: '{дата рождения}',
+      niss: '{номер нисс}'
+    };
+
+    function valOr(key) {
+      const v = $(key).value.trim();
+      return v || placeholders[key];
+    }
+
+    function build() {
+      const fullName = valOr('fullName');
+      const resNum = valOr('resNum');
+      const dob = valOr('dob');
+      const niss = valOr('niss');
+
+      const subject = `${fullName} - Alteração de dados - Inserir Número de Identificação de Segurança Social (NISS)`;
+
+      const body = [
+        `Cara AIMA,`,
+        '',
+        `Sou ${fullName}, com o número de residência ${resNum}, nascido em ${dob}, e não consigo solicitar a renovação de residência no portal de renovação https://portal-renovacoes.aima.gov.pt/ , uma vez que o meu NISS não consta nos meus registos.`,
+        '',
+        `Por favor, adicionem o NISS ${niss} ao meu perfil.`,
+        `Consulte os documentos comprovativos em anexo.`,
+        '',
+        `Atenciosamente,`,
+        `${fullName}`,
+        '---------------------',
+        'Dear AIMA,',
+        '',
+        `I am ${fullName} with residence number ${resNum} born on ${dob}, and am unable to request residence renewal on the renewal portal https://portal-renovacoes.aima.gov.pt/ , because my NISS is missing in my records.`,
+        '',
+        `Please add NISS ${niss} to my profile.`,
+        `Please see the supporting documents attached.`,
+        '',
+        'Kind regards,',
+        `${fullName}`
+      ].join('\n');
+
+      $('subject').value = subject;
+      $('body').value = body;
+    }
+
+    ['fullName', 'resNum', 'dob', 'niss'].forEach(id => {
+      $(id).addEventListener('input', build);
+    });
+
+    // Copy buttons
+    document.querySelectorAll('[data-copy]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const targetId = btn.getAttribute('data-copy');
+        const el = $(targetId);
+        el.select?.();
+        try {
+          await navigator.clipboard.writeText(el.value);
+          btn.textContent = 'Скопировано!';
+          setTimeout(() => (btn.textContent = targetId === 'body' ? 'Копировать текст' : 'Копировать тему'), 1200);
+        } catch (e) {
+          // Fallback
+          document.execCommand('copy');
+        }
+      });
+    });
+
+    // Initial render with placeholders
+    build();
+  </script>
+</body>
+</html>
